@@ -1,5 +1,5 @@
 module.exports = function(context, data) {
-  const Util = require('.(/utilities');
+  const Util = require('../lib/utilities');
 
   if (data && data.body) {
     const animals = data.body.animals || [];
