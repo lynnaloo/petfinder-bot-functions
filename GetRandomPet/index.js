@@ -18,7 +18,7 @@ module.exports = function(context, data) {
       animalName: randomAnimal.name
     };
 
-    const adoptionBlurb = `${util.getAdoptionText(animalFacts.name, animalFacts.gender, animalFacts.breed, animalFacts.url)}`;
+    const adoptionBlurb = `${util.getAdoptionText(animalFacts.animalName, animalFacts.animalGender, animalFacts.animalBreed, animalFacts.animalUrl)}`;
     console.log('DEBUG:', adoptionBlurb);
 
     context.res = {
