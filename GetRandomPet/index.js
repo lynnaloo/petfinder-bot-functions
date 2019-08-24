@@ -1,36 +1,36 @@
-module.exports = function (context, data) {
-  
+module.exports = function(context, data) {
+  const Util = require('.(/utilities');
+
   if (data && data.body) {
-      const animals = data.body.animals || [];
-      const totalAnimals = animals.length;
-      const randomAnimal = animals[Math.floor(Math.random() * totalAnimals)];
+    const animals = data.body.animals || [];
+    const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+    const util = new Util();
 
-      console.log('debug:', animals);
-      console.log('debug:', randomAnimal);
+    console.log('debug:', randomAnimal);
 
-      const animalFacts = {
-        animalUrl: randomAnimal.url,
-        animalType: randomAnimal.type,
-        animalAge: randomAnimal.age,
-        animalBreed: randomAnimal.breeds ? randomAnimal.breeds.primary : '',
-        animalPhoto: randomAnimal.photos[0].small,
-        animalGender: randomAnimal.gender,
-        animalName: randomAnimal.name
-      };
+    const animalFacts = {
+      animalUrl: randomAnimal.url,
+      animalType: randomAnimal.type,
+      animalAge: randomAnimal.age,
+      animalBreed: randomAnimal.breeds ? randomAnimal.breeds.primary : '',
+      animalPhoto: randomAnimal.photos[0].small,
+      animalGender: randomAnimal.gender,
+      animalName: randomAnimal.name
+    };
 
-      const adoptionBlurb = `Hi! My name is ${animalFacts.animalName}. I am a ${animalFacts.animalAge} ${animalFacts.animalGender} ${animalFacts.animalBreed}. Check out my adoption link for more information! ${animalFacts.animalUrl}`;
-      console.log('DEBUG:', adoptionBlurb);
+    const adoptionBlurb = `${util.getAdoptionText(animalFacts.name, animalFacts.gender, animalFacts.breed, animalFacts.url)}`;
+    console.log('DEBUG:', adoptionBlurb);
 
-      context.res = {
-        body: adoptionBlurb
-      };
+    context.res = {
+      body: adoptionBlurb
+    };
 
-      context.done();
+    context.done();
   }
 
   context.res = {
     body: {}
   };
-  
+
   context.done();
 };

@@ -1,0 +1,31 @@
+{
+  "name": "petfinder-bot",
+  "version": "1.0.0",
+  "description": "Supporting utilities for the petinder-bot",
+  "scripts": {
+    "test": "mocha -c",
+    "lint": "eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lynnaloo/petfinder-bot.git"
+  },
+  "keywords": [
+    "azure",
+    "functions",
+    "petfinder"
+  ],
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-shopify": "^30.0.1",
+    "mocha": "^6.2.0"
+  },
+  "author": "Linda Nichols <lynnaloo>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lynnaloo/petfinder-bot/issues"
+  },
+  "homepage": "https://github.com/lynnaloo/petfinder-bot#readme"
+}
