@@ -29,11 +29,11 @@ steps:
     npm run lint 
     npm test
   displayName: 'npm install, lint, and test'
-  
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
 
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'petfinderbot'
 
 - task: AzureFunctionApp@1
   inputs:
