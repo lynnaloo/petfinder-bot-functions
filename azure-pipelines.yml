@@ -28,9 +28,20 @@ steps:
     npm test
   displayName: 'npm install, lint, and test'
 
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    includeRootFolder: false
+    archiveType: zip
+    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    replaceExistingArchive: true
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+# only build artifact if it's not a PR
+    
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+    targetPath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     artifact: 'petfinderbot'
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # only build artifact if it's not a PR
@@ -40,7 +51,7 @@ steps:
     azureSubscription: 'Pay-As-You-Go (53cd0336-4079-4703-b33b-28e6a6bd452a)'
     appType: 'functionAppLinux'
     appName: 'petfinder-bot-functions'
-    package: '$(Build.ArtifactStagingDirectory)/**/'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     runtimeStack: 'DOCKER|microsoft/azure-functions-node8:2.0'
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
 # only deploy artifact if it's not a PR    
