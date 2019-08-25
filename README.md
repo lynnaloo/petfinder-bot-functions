@@ -36,11 +36,6 @@ npm run test
 👤 **[@lynnaloo](https://github.com/lynnaloo)**
 
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/lynnaloo/petfinder-bot/issues).
-
-
 ## 📝 License
 
 Copyright © 2019 [Linda Nichols <lynnaloo>](https://github.com/lynnaloo).<br />
