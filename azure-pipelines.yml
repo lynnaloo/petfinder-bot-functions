@@ -32,11 +32,5 @@ steps:
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     artifact: 'petfinderbot'
-
-- task: AzureFunctionApp@1
-  inputs:
-    azureSubscription: 'Pay-As-You-Go (53cd0336-4079-4703-b33b-28e6a6bd452a)'
-    appType: 'functionAppLinux'
-    appName: 'petfinder-bot'
-    package: '$(Build.ArtifactStagingDirectory)/**/'
-    runtimeStack: 'DOCKER|microsoft/azure-functions-node8:2.0'
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+# only build artifact if it's not a PR
