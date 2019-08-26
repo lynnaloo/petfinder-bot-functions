@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/lynnaloo/petfinder-bot/issues"
   },
-  "homepage": "https://github.com/lynnaloo/petfinder-bot#readme"
+  "homepage": "https://github.com/lynnaloo/petfinder-bot#readme",
+  "dependencies": {
+    "applicationinsights": "^1.4.1"
+  }
 }
