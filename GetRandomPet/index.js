@@ -15,10 +15,12 @@ module.exports = function(context, data) {
       animalBreed: randomAnimal.breeds ? randomAnimal.breeds.primary : '',
       animalPhoto: randomAnimal.photos[0].small,
       animalGender: randomAnimal.gender,
-      animalName: randomAnimal.name
+      animalName: randomAnimal.name,
+      animalCity: randomAnimal.contact.address.city,
+      animalState: randomAnimal.contact.address.state
     };
 
-    const adoptionBlurb = `${util.getAdoptionText(animalFacts.animalName, animalFacts.animalGender, animalFacts.animalBreed, animalFacts.animalUrl)}`;
+    const adoptionBlurb = `${util.getAdoptionText(animalFacts.animalName, animalFacts.animalGender, animalFacts.animalBreed, animalFacts.animalUrl, animalFacts.animalCity, animalFacts.animalState)}`;
     console.log('DEBUG:', adoptionBlurb);
 
     context.res = {
