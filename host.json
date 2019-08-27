@@ -1,7 +1,36 @@
-
-
-// Enable telemetry collection with Application Insights
-var ai = require('applicationinsights');
-ai.setup(process.env.APPLICATIONINSIGHTSKEY || '6ff94ff7-59fc-463c-9ee2-572fab5efa19').start();{
-  "version": "2.0"
+{
+  "version": "2.0",
+  "aggregator": {
+      "batchSize": 1000,
+      "flushTimeout": "00:00:30"
+  },
+  "extensions": {
+      "cosmosDb": {},
+      "durableTask": {},
+      "eventHubs": {},
+      "http": {},
+      "queues": {},
+      "sendGrid": {},
+      "serviceBus": {}
+  },
+  "healthMonitor": {
+      "enabled": true,
+      "healthCheckInterval": "00:00:10",
+      "healthCheckWindow": "00:02:00",
+      "healthCheckThreshold": 6,
+      "counterThreshold": 0.80
+  },
+  "logging": {
+      "fileLoggingMode": "debugOnly",
+      "logLevel": {
+        "Function.MyFunction": "Information",
+        "default": "None"
+      },
+      "applicationInsights": {
+          "samplingSettings": {
+            "isEnabled": true,
+            "maxTelemetryItemsPerSecond" : 5
+          }
+      }
+  }
 }

@@ -23,10 +23,10 @@ module.exports = function(context, data) {
     const adoptionBlurb = `${util.getAdoptionText(animalFacts.animalName, animalFacts.animalGender, animalFacts.animalBreed, animalFacts.animalUrl, animalFacts.animalCity, animalFacts.animalState)}`;
     console.log('DEBUG:', adoptionBlurb);
 
-    // context.bindings.myOutput = {
-    //   text: adoptionBlurb,
-    //   photo: animalFacts.animalPhoto
-    // };
+    context.bindings.myOutput = {
+      text: adoptionBlurb,
+      photo: animalFacts.animalPhoto
+    };
 
     context.res = {
       body: adoptionBlurb
