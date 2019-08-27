@@ -4,7 +4,7 @@ module.exports = function(context, data) {
 
   if (data && data.body) {
     const animal = data.body;
-    const adoptionBlurb = `${util.getAdoptionText(animal.animalName, animal.animalGender, animal.animalBreed, animal.animalUrl, animal.animalCity, animal.animalState)}`;
+    const adoptionBlurb = `${util.getAdoptionText(animal.animalName, animal.animalGender, animal.animalBreed, animal.animalUrl, animal.animalCity, animal.animalState, animal.animalTags)}`;
     console.log('DEBUG:', adoptionBlurb);
 
     context.res = {

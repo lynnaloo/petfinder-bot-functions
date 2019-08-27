@@ -6,7 +6,7 @@ describe('adoptionText', () => {
   describe('instantiation', () => {
     it('get adoption text', () => {
       const util = new Util();
-      const text = util.getAdoptionText('Spot', 'Female', 'Persian', 'www.petfinder.com', 'San Diego', 'CA');
+      const text = util.getAdoptionText('Spot', 'Female', 'Persian', 'www.petfinder.com', 'San Diego', 'CA', ['cute', 'fluffy']);
 
       assert(text);
     });
