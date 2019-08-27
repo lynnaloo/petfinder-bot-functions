@@ -1,14 +1,11 @@
 {
   "bindings": [
     {
-      "authLevel": "admin",
+      "webHookType": "genericJson",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
+      "authLevel": "anonymous"
     },
     {
       "type": "http",
