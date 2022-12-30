@@ -20,7 +20,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-shopify": "^30.0.1",
-    "mocha": "^6.2.0"
+    "mocha": "^10.2.0"
   },
   "author": "Linda Nichols <lynnaloo>",
   "license": "MIT",
